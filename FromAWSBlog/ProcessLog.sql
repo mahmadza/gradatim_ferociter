@@ -10,9 +10,7 @@ CREATE STREAM "DESTINATION_SQL_STREAM" (
   responseCount SMALLINT);
 
 
--- Aggregrate response over joined data with host application mapping stored on S3.
--- It always uses the latest S3 file
-
+/* aggregate response */
 CREATE OR REPLACE PUMP "DESTINATION_SQL_STREAM" AS
   INSERT INTO "DESTINATION_SQL_STREAM"
   SELECT STREAM   metadata."ApplicationName",
