@@ -9,8 +9,9 @@
 ###################################################################
 cd /home/mzabidi/temp/
 
-#Start an SQS queue at the Console
-#populate SQS queue with sample names
+#First, start an SQS queue at the Console
+#Then, populate the SQS queue with sample names
+#use the URL from the console
 URL=https://sqs.ap-southeast-1.amazonaws.com/453984338776/BigGermlineSplit
 for sample in $(awk 'NR>1' /people/mzabidi/tumor_project/data/germline_variants/pairs.txt | cut -f4 | sort | uniq | sed 's/_MN//'); do
   echo $sample
