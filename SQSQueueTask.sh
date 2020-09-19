@@ -21,11 +21,13 @@ for sample in $(awk 'NR>1' /people/mzabidi/tumor_project/data/germline_variants/
 done
 
 
-#do in screens
+#Poll the message and run the tasks
+#do in screens so can exit the terminal
+#can also do many screens to speed up tasks
 screen -R split_by_SQS
 SQS=$(mktemp)
 URL=https://sqs.ap-southeast-1.amazonaws.com/453984338776/BigGermlineSplit
-#poll queue to begin
+#poll SQS queue to begin
 aws sqs receive-message --queue-url $URL > $SQS
 
 #keep splitting until the queue exhausts
@@ -36,7 +38,7 @@ while [ -s $SQS ]; do
 
   echo $sample $rhandle
 
-  #split samples
+  #split samples using GATK
   time /usr/lib/jvm/java-8-oracle/bin/java -jar /opt/software/GenomeAnalysisTK-3.8-0/GenomeAnalysisTK.jar \
   -T SelectVariants \
   -R /home/ubuntu/shared/ref/hg19/with_decoy_genome/hs37d5.fa \
@@ -58,7 +60,7 @@ done
 ls log/*log | while read l; do
   echo $log $(grep "Done. ---" $l)
 done
-#all 559 are OK!
+#all 559 samples are OK!
 
 
 
