@@ -45,6 +45,7 @@ WHERE FirstName = 'Delmar'
 update SalesLT.Customer
 set EmailAddress = 'delmar@XXX.com'
 WHERE Fistname = 'Delmar'
+/* added email address */
 
 
 
