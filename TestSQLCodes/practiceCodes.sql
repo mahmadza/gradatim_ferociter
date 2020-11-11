@@ -25,6 +25,30 @@ SELECT Name, StandardCosts, "Price Comment" =
 from SalesLT.Product
 
 
+/*     */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
