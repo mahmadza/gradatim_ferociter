@@ -75,7 +75,9 @@ create index Test_index
 select * from sys.indexes
 where name = 'Test_Index'
 
-/* to drop index */
+/* to drop index
+watch out: if have too many indexes, will slow down performance
+*/
 drop index Test_index on SalesLt.Product
 
 
