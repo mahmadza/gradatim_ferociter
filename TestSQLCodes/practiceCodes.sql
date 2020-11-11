@@ -48,11 +48,17 @@ WHERE Fistname = 'Delmar'
 /* added email address */
 
 
+delete from table_name
+  where Firstname = 'Delmar'
+
+truncate table table_name
+/* fast */
 
 
-
-
-
+/* managing database commands */
+create database database_name;
+drop database database_name;
+backup database database_name to disk = 'path';
 
 
 
