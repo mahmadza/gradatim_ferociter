@@ -61,10 +61,21 @@ drop database database_name;
 backup database database_name to disk = 'path';
 
 
+/* add, modify or drop a table */
+alter table table_name
+add|modify|drop
+column_name data_type;
 
 
+/* create index */
+create index Test_index
+  on SalesLt.Product
+  (Name, Color)
 
+select * from sys.indexes
+where name = 'Test_Index'
 
+drop index Test_index on SalesLt.Product
 
 
 
