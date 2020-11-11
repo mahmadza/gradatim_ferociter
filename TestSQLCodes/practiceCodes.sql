@@ -33,8 +33,18 @@ from SalesLT.Customer
 select * from SalesLT.Customer_Test
 
 
+/* update a table
+be careful with the WHERE!
+always use WHERE so that you dont end up changing the whole table
+*/
 
+select FirstName, emailaddress from SalesLT.Customer
+WHERE FirstName = 'Delmar'
+/* no email address */
 
+update SalesLT.Customer
+set EmailAddress = 'delmar@XXX.com'
+WHERE Fistname = 'Delmar'
 
 
 
