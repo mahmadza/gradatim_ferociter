@@ -25,7 +25,13 @@ SELECT Name, StandardCosts, "Price Comment" =
 from SalesLT.Product
 
 
-/*     */
+/* Copy a table into another table */
+
+select * into SalesLT.Customer_Test
+from SalesLT.Customer
+
+select * from SalesLT.Customer_Test
+
 
 
 
