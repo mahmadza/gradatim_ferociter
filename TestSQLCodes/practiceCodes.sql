@@ -81,8 +81,17 @@ watch out: if have too many indexes, will slow down performance
 drop index Test_index on SalesLt.Product
 
 
+/* create a view of the table */
+create view ciew_name as
+  select column1, colum2
+  from table_name
+  where condition;
 
-
+/* to alter the view: */
+alter view view_name as
+select column3, column4
+from table_name
+where condition;
 
 
 
