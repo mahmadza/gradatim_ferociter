@@ -128,7 +128,7 @@ class GridWorldEnv(discrete.DiscreteEnv):
             (CELL_SIZE - MARGIN, screen_height - CELL_SIZE + MARGIN),
         ]
 
-        border = rendering.PolyLine(bpList, True)
+        border = rendering.PolyLine(bp_list, True)
         border.set_linewidth(5)
         all_objects.append(border)
 
