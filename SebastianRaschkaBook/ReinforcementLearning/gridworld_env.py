@@ -41,6 +41,7 @@ def draw_object(coords_list):
         obj_transform.set_translation(*coords_list[0])
         obj.set_color(0.2, 0.2, 0.2)  # black
     elif len(coords_list) == 3:  # triangle
+        obj = rendering.FilledPolygon(coords_list)
         obj.set_color(0.9, 0.6, 0.2)  # yellow
     elif len(coords_list) > 3:  # polygon
         obj = rendering.FilledPolygon(coords_list)
