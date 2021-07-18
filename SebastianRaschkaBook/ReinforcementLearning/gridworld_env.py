@@ -121,7 +121,7 @@ class GridWorldEnv(discrete.DiscreteEnv):
         all_objects = []
 
         # border points' coordinates
-        by_list = [
+        bp_list = [
             (CELL_SIZE - MARGIN, CELL_SIZE - MARGIN),
             (screen_width - CELL_SIZE + MARGIN, CELL_SIZE - MARGIN),
             (screen_width - CELL_SIZE + MARGIN, screen_height - CELL_SIZE + MARGIN),
