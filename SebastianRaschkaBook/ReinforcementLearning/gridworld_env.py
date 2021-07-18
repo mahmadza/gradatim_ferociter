@@ -114,7 +114,7 @@ class GridWorldEnv(discrete.DiscreteEnv):
     def is_terminal(self, state):
         return state in self.terminal_states
 
-    def _build_display(self, gold_Cell, trap_cells):
+    def _build_display(self, gold_cell, trap_cells):
         screen_width = (self.num_cols + 2) * CELL_SIZE
         screen_height = (self.num_rows + 2) * CELL_SIZE
         self.viewer = rendering.Viewer(screen_width, screen_height)
