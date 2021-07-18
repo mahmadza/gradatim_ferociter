@@ -24,7 +24,7 @@ def get_coords(row, col, loc="center"):
         half_size = CELL_SIZE // 2 - MARGIN
         xl, xr = xc - half_size, xc + half_size
         yt, yb = xc - half_size, xc + half_size
-        return [(xl, yt), (xr, yt), (xr, yb), (x1, yb)]
+        return [(xl, yt), (xr, yt), (xr, yb), (xl, yb)]
 
     elif loc == "interior_triangle":
         xl, yl = xc, yc + CELL_SIZE // 3
