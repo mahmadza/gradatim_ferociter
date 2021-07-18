@@ -117,7 +117,7 @@ class GridWorldEnv(discrete.DiscreteEnv):
     def _build_display(self, gold_Cell, trap_cells):
         screen_width = (self.num_cols + 2) * CELL_SIZE
         screen_height = (self.num_rows + 2) * CELL_SIZE
-        self.viewer = rendering.Viewer(scren_width, screen_height)
+        self.viewer = rendering.Viewer(screen_width, screen_height)
         all_objects = []
 
         # border points' coordinates
