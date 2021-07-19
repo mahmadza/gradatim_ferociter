@@ -33,3 +33,18 @@ class DQNAgent:
         self.epsilon_decay = epsilon_decay
         self.lr = learning_rate
         self._build_nn_model()
+
+    def build_nn_model(self, n_layers=3):
+        self.model = tf.keras.Sequential()
+
+        # hidden layers
+        for n in range(n_layers - 1):
+            self.model.add(tf.keras.layers.Dense(units=32, activation="relu"))
+            self.model.add(tf.keras.layers.Dense(units=32, activation="relu"))
+
+        # last layer
+        self.model.add(tf.keras.layers.Dense(units=self.action_size))
+
+        # build and compile model
+        self.model.build(input_shape=(None, self.state_size))
+        self.model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(lr=self.lr))
