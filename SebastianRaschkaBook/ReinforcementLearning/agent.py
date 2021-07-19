@@ -18,7 +18,7 @@ class Agent(object):
         # assign self variables to class variables
         self.env = env
         self.lr = lr
-        self.gamma = learning_rate
+        self.gamma = learning_rate  # discount factor
         self.epsilon = epsilon_greedy
 
         # define q table
@@ -51,5 +51,6 @@ class Agent(object):
         self._adjust_epsilon()
 
     def _adjust_epsilon(self):
+        # reduce until reach minimum value, epsilon_min
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
