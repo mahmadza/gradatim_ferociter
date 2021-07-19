@@ -56,3 +56,12 @@ def plot_learning_history(history):
     plt.ylabel("Final rewards", size=20)
     plt.savefig("q_learninghistory.png", dpi=300)
     plt.show
+
+
+if __name__ == "__main__":
+    env = GridWorldEnv(num_rows=5, num_cols=6)
+    agent = Agent(env)
+    history = run_qlearning(agent, env)
+    env.close()
+
+    plot_learning_history(history)
