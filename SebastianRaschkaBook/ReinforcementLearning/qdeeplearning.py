@@ -48,3 +48,30 @@ class DQNAgent:
         # build and compile model
         self.model.build(input_shape=(None, self.state_size))
         self.model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(lr=self.lr))
+
+    def remember(self, transition):
+        self.memory.append(transition)
+
+    def choose_action(self, state):
+        if np.random.rand() <= self.epsilon:
+            return random.randrange(self.action_size)
+        q_values = self.model.predict(state)[0]
+        return np.argmax(q_values)  # returns action
+
+    def _learn(self, batch_samples):
+        batch_states, batch_targets = [], []
+        for transition in batch_samples:
+            s, a, r, next_s, done = transition
+            if done:
+                target = r
+            else:
+                target = r + self.gamma * np.amax(self.model.predict(next_s)[0])
+
+            target_all = self.model.predict(s)[0]
+            target_all[a] = target
+            batch_states.append(s.flatten())
+            batch_targets.append(target_all)
+            self._adjust_epsilon()
+        return self.model.fit(
+            x=np.array(batch_states), y=np.array(batch_targets), epochs=1, verbose=0
+        )
