@@ -17,7 +17,7 @@ class Agent(object):
 
         # assign self variables to class variables
         self.env = env
-        self.lr = lr
+        self.lr = learning_rate
         self.gamma = learning_rate  # discount factor
         self.epsilon = epsilon_greedy
 
@@ -25,7 +25,7 @@ class Agent(object):
         self.q_table = defaultdict(lambda: np.zeros(self.env.nA))
 
     def choose_action(self, state):
-        if np.random_uniform() < self.epsilon:
+        if np.random.uniform() < self.epsilon:
             action = np.random.choice(self.env.nA)
         else:
             q_vals = self.q_table[state]

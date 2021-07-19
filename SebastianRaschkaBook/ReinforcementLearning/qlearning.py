@@ -1,7 +1,7 @@
 # qlearning.py
 
 from gridworld_env import GridWorldEnv
-from agent import agent
+from agent import *
 from collections import namedtuple
 import matplotlib.pyplot as plt
 import numpy as np
