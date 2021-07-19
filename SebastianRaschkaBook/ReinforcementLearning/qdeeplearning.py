@@ -27,3 +27,9 @@ class DQNAgent:
         self.env = env
         self.state_size = env.observation_space.shape[0]
         self.action_size = env.action_space.n
+        self.memory = deque(maxlen=max_memory_size)
+        self.gamma = discount_factor
+        self.epsilon = epsilon_greedy
+        self.epsilon_decay = epsilon_decay
+        self.lr = learning_rate
+        self._build_nn_model()
