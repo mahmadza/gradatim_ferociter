@@ -75,3 +75,12 @@ class DQNAgent:
         return self.model.fit(
             x=np.array(batch_states), y=np.array(batch_targets), epochs=1, verbose=0
         )
+
+    def _adjust_epsilon(self):
+        if self.epsilon > self.epsilon_min:
+            self.epsilon *= self.epsilon_decay
+
+    def replay(self, batch_size):
+        samples = random.sample(self.memory, batch_size)
+        history = self._learn(samples)
+        return history.history["loss"][0]
