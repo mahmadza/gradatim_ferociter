@@ -43,7 +43,7 @@ def plot_learning_history(history):
     fig = plt.figure(1, figsize=(14, 10))
     ax = fig.add_subplot(2, 1, 1)
     episodes = np.arange(len(history))
-    moves = np.array(h[0] for h in history)
+    moves = np.array([h[0] for h in history])
     plt.plot(episodes, moves, lw=4, marker="o", markersize=10)
     ax.tick_params(axis="both", which="major", labelsize="15")
     plt.xlabel("Episodes", size=20)

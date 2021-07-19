@@ -20,6 +20,8 @@ class Agent(object):
         self.lr = learning_rate
         self.gamma = learning_rate  # discount factor
         self.epsilon = epsilon_greedy
+        self.epsilon_min = epsilon_min
+        self.epsilon_decay = epsilon_decay
 
         # define q table
         self.q_table = defaultdict(lambda: np.zeros(self.env.nA))
