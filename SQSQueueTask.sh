@@ -1,18 +1,17 @@
 
-
-
-
 ###################################################################
 #     Test example to use SQS for queuing a large batch of tasks
 #     Here, the task is to separate individual samples
 #               from a very big VCF files
 ###################################################################
+
 cd /home/mzabidi/temp/
 
 #First, start an SQS queue at the Console
 #Then, populate the SQS queue with sample names
 #use the URL from the console
-URL=https://sqs.ap-southeast-1.amazonaws.com/453984338776/BigGermlineSplit
+ACC_ID = 453984338776
+URL=https://sqs.ap-southeast-1.amazonaws.com/${ACC_ID}/BigGermlineSplit
 for sample in $(awk 'NR>1' /people/mzabidi/tumor_project/data/germline_variants/pairs.txt | cut -f4 | sort | uniq | sed 's/_MN//'); do
   echo $sample
   aws sqs send-message \
@@ -26,7 +25,7 @@ done
 #can also do many screens to speed up tasks
 screen -R split_by_SQS
 SQS=$(mktemp)
-URL=https://sqs.ap-southeast-1.amazonaws.com/453984338776/BigGermlineSplit
+URL=https://sqs.ap-southeast-1.amazonaws.com/${ACC_ID}/BigGermlineSplit
 #poll SQS queue to begin
 aws sqs receive-message --queue-url $URL > $SQS
 
