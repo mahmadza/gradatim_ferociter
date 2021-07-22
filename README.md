@@ -5,3 +5,4 @@ Includes
 2. Notes on AWS Training videos
 3. Test notebook on AWS Machine Learning Certification learning materials
 4. Test notebook and code on AWS Data Analytics Certification learning materials
+5. Many other example codes that I test as I build up knowledge in data science
