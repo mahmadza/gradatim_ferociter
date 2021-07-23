@@ -94,3 +94,16 @@ class DQNAgent:
         plt.xlabel("Episodes", size=20)
         plt.ylabel("# total rewards ", size=20)
         plt.show()
+
+    # basic settings
+    EPISODES = 200
+    batch_size = 32
+    init_replay_memory_size = 500
+
+    if __name__ == "__main__":
+        env = gym.make("CartPole-v1")
+        agent = DQNAgent(env)
+        state = env.reset(env)
+        state = np.reshape(state, [1, agent.state_size])
+
+        # NOT FINISHED
