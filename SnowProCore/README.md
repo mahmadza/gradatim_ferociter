@@ -1,0 +1,1 @@
+Notes I used to prepare for SnowPro Core certification exam.
