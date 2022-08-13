@@ -1,0 +1,32 @@
+Standard Data Listings
+For instant access 
+Best for generic, aggregated, or non-customer-specific data
+Listing includes details about the data, sample queries, and information about data provider
+only user with IMPORT SHARE privilege can create databases from the Snowflake Data Marketplace
+
+Personalized Data Listings
+allows request specific data sets
+can be premium data that a provider charges for
+- or data that is specific to each consumer
+each listing includes details about the data, sample usage examples, and information about data provider
+to access
+- submit a request by clicking the Request button, and provide their contact information
+	- data provider is notified
+		- Provider then contacts the consumer
+provider can have different commercial terms
+- Once those are agreed to, then the personalized data set is created and shared with the consumer
+
+Data Consumer Accounts
+Full Account
+Reader Account
+- to share data without consumer becoming a Snowflake customer
+- user can query data, but cannot perform DML tasks like in a full account (data loading, insert, update, etc.)
+	- the following DML and DDL not allowed:
+		- INSERT
+		- UPDATE
+		- DELETE
+		- MERGE
+		- COPY INTO <table>
+		- CREATE PIPE
+		- CREATE SHARE
+
